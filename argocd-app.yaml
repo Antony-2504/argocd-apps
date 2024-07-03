@@ -2,13 +2,17 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: guestbook
-  namespace: argocd
+  namespace: default
 spec:
   destination:
+    server: 'https://kubernetes.default.svc'
     namespace: default
-    server: https://kubernetes.default.svc
+  project: default
   source:
-    path: .
     repoURL: https://github.com/Antony-2504/k8s-manifests
     targetRevision: HEAD
-  project: default
+    path: guestbook.yaml   # Path to your Kubernetes manifest file
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
