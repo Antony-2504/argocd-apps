@@ -9,6 +9,6 @@ spec:
     server: https://kubernetes.default.svc
   source:
     path: .
-    repoURL: <URL of your k8s-manifests repository>
+    repoURL: https://github.com/Antony-2504/k8s-manifests
     targetRevision: HEAD
   project: default
